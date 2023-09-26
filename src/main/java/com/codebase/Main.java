@@ -29,6 +29,25 @@ public class Main {
         return choice;
 
     }
+    static void fight(SpellUser player, SpellUser enemy){
+        int difficulty = pickDifficulty();
+        System.out.println("Enemy has "+enemy.getHp()+" health");
+        while(enemy.getHp()>0){
+            SpellUser.chooseYourSpell(player);
+            enemy.takeDamage(player.dealDamage());
+            System.out.println("Enemy has "+enemy.getHp()+" health");
+            if (enemy.getHp()<1){
+                System.out.println("You Win");
+                break;
+            }
+            player.takeDamage(round(enemy.dealDamage()/difficulty));
+            System.out.println("You have "+player.getHp()+" health");
+            if(player.getHp()<1){
+                System.out.println("You have died");
+                break;
+            }
+        }
+    }
     static void fight(SpellUser player, WeaponUser enemy){
         int difficulty = pickDifficulty();
         System.out.println("Enemy has "+enemy.getHp()+" health");
@@ -36,6 +55,29 @@ public class Main {
             SpellUser.chooseYourSpell(player);
             enemy.takeDamage(player.dealDamage());
             System.out.println("Enemy has "+enemy.getHp()+" health");
+            if (enemy.getHp()<1){
+                System.out.println("You Win");
+                break;
+            }
+            player.takeDamage(round(enemy.dealDamage()/difficulty));
+            System.out.println("You have "+player.getHp()+" health");
+            if(player.getHp()<1){
+                System.out.println("You have died");
+                break;
+            }
+        }
+    }
+    static void fight(WeaponUser player, SpellUser enemy){
+        int difficulty = pickDifficulty();
+        System.out.println("Enemy has "+enemy.getHp()+" health");
+        while(enemy.getHp()>0){
+            WeaponUser.chooseYourWeapon(player);
+            enemy.takeDamage(player.dealDamage());
+            System.out.println("Enemy has "+enemy.getHp()+" health");
+            if (enemy.getHp()<1){
+                System.out.println("You Win");
+                break;
+            }
             player.takeDamage(round(enemy.dealDamage()/difficulty));
             System.out.println("You have "+player.getHp()+" health");
             if(player.getHp()<1){
@@ -51,6 +93,10 @@ public class Main {
             WeaponUser.chooseYourWeapon(player);
             enemy.takeDamage(player.dealDamage());
             System.out.println("Enemy has "+enemy.getHp()+" health");
+            if (enemy.getHp()<1){
+                System.out.println("You Win");
+                break;
+            }
             player.takeDamage(round(enemy.dealDamage()/difficulty));
             System.out.println("You have "+player.getHp()+" health");
             if(player.getHp()<1){
@@ -80,6 +126,7 @@ public class Main {
                 System.out.println("Please pick between 1 and 3");
             }
         }
+        chosenHeritage -=1;
         System.out.println("Choose your Class");
         Hero[] availableClasses = new Hero[6];
         availableClasses[0] = new Archer(availableHeritage[chosenHeritage]);
@@ -104,7 +151,27 @@ public class Main {
         return availableClasses[chosenClass-1];
 
     }
-
+    public static void fight(Hero player, Hero enemy){
+        if(player.getClassName().equals("Cleric") || player.getClassName().equals("Warlock")||player.getClassName().equals("Wizard")){
+            SpellUser newPlayer = (SpellUser)player;
+            if(enemy.getClassName().equals("Cleric") || enemy.getClassName().equals("Warlock")||enemy.getClassName().equals("Wizard")){
+                SpellUser newEnemy = (SpellUser)enemy;
+                fight(newPlayer,newEnemy);
+            } else{
+                WeaponUser newEnemy = (WeaponUser)enemy;
+                fight(newPlayer,newEnemy);
+            }
+        } else{
+            WeaponUser newPlayer = (WeaponUser)player;
+            if(enemy.getClassName().equals("Cleric") || enemy.getClassName().equals("Warlock")||enemy.getClassName().equals("Wizard")){
+                SpellUser newEnemy = (SpellUser)enemy;
+                fight(newPlayer,newEnemy);
+            } else{
+                WeaponUser newEnemy = (WeaponUser)enemy;
+                fight(newPlayer,newEnemy);
+            }
+        }
+    }
 
     public static void main(String[] args) {
         Fighter jim = new Fighter(new Dwarf());
@@ -117,7 +184,7 @@ public class Main {
         Hero heroTest = heroBuilder();
         System.out.println(heroTest.getClassName());
 //        fight(jim,enemy1);
-        fight(dave,enemy1);
+        fight(heroTest,enemy1);
 
 
 

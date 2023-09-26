@@ -12,16 +12,23 @@ import java.util.Scanner;
 
 public class SpellUser extends Hero implements IConsoleFighter {
     ArrayList<ISpell> spellArrayList;
+    ArrayList<ISpell> healingArrayList;
     ISpell chosenSpell;
+    ISpell chosenHeal;
     int heritageBonus;
     public SpellUser(ClassNames classGiven, int hp, Heritage givenHeritage) {
         super(classGiven, hp, givenHeritage);
         spellArrayList = new ArrayList<>();
         chosenSpell = HealingSpells.GOODBERRY;
+        chosenHeal = HealingSpells.GOODBERRY;
         heritageBonus=givenHeritage.getSpellBuff();
+        healingArrayList = new ArrayList<>();
     }
     public int castSpell(){
         return chosenSpell.hpChange()+heritageBonus;
+    }
+    public void castHeal(Hero hero){
+        hero.setHp(chosenHeal.hpChange());
     }
 
     public ISpell getChosenSpell() {
