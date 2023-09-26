@@ -1,5 +1,5 @@
 package com.codebase.weapons.spells;
 
-public interface Spell {
+public interface ISpell {
     int hpChange();
 }

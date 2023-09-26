@@ -1,10 +1,11 @@
 package com.codebase.weapons.spells;
 
-public enum OffensiveSpells implements Spell{
+public enum OffensiveSpells implements ISpell {
     FIREBALL(25,"Fire",2),
     ICEBLAST(15,"Ice",4),
     BLADESTORM(20,"Slash",3),
-    SMITE(25,"Holy",5);
+    SMITE(25,"Holy",5),
+    ELDRITCHBLAST(20,"Force",2);
     private int damage;
     private String damageType;
     private int multiplier;

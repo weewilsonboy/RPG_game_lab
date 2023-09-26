@@ -4,11 +4,14 @@ import com.codebase.Hero.Classes.Archer;
 import com.codebase.Hero.Classes.Barbarian;
 import com.codebase.Hero.Classes.Fighter;
 import com.codebase.Hero.Hero;
+import com.codebase.Hero.Races.Dwarf;
+import com.codebase.Hero.Races.Elf;
+import com.codebase.Hero.Races.Human;
 
 public enum Weapons {
-    SWORD("",20,new Fighter()),
-    CLUB("",12,new Barbarian()),
-    BOW("",15,new Archer());
+    SWORD("",20,new Fighter(new Human())),
+    CLUB("",12,new Barbarian(new Dwarf())),
+    BOW("",15,new Archer(new Elf()));
     String strongAgainst;
     int damage;
     Hero bestClass;

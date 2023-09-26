@@ -1,6 +1,6 @@
 package com.codebase.weapons.spells;
 
-public enum HealingSpells implements Spell{
+public enum HealingSpells implements ISpell {
     LAYONHANDS(-25),
     HEALINGWORD(-15),
     HEALTHPOTION(-50),

@@ -1,4 +1,13 @@
 package com.codebase.Hero.Classes;
 
-public class Warlock {
+import com.codebase.Hero.Archetypes.Mage;
+import com.codebase.Hero.ClassNames;
+import com.codebase.Hero.Races.Heritage;
+import com.codebase.weapons.spells.OffensiveSpells;
+
+public class Warlock extends Mage {
+    public Warlock(Heritage givenHeritage) {
+        super(ClassNames.WARLOCK, 70,givenHeritage);
+        setChosenSpell(3);
+    }
 }
