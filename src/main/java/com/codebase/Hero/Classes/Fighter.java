@@ -6,6 +6,6 @@ import com.codebase.Hero.Races.Heritage;
 
 public class Fighter extends WeaponUser {
     public Fighter(Heritage givenHeritage) {
-        super(ClassNames.FIGHTER,100, givenHeritage);
+        super(ClassNames.FIGHTER,250, givenHeritage);
     }
 }

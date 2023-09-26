@@ -7,7 +7,7 @@ import com.codebase.weapons.spells.OffensiveSpells;
 
 public class Warlock extends Mage {
     public Warlock(Heritage givenHeritage) {
-        super(ClassNames.WARLOCK, 70,givenHeritage);
+        super(ClassNames.WARLOCK, 150,givenHeritage);
         setChosenSpell(3);
     }
 }

@@ -6,6 +6,6 @@ import com.codebase.Hero.Races.Heritage;
 
 public class Cleric extends Healer {
     public Cleric(Heritage givenHeritage) {
-        super(ClassNames.CLERIC, 100,givenHeritage);
+        super(ClassNames.CLERIC, 200,givenHeritage);
     }
 }

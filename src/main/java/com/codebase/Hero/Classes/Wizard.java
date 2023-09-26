@@ -6,7 +6,7 @@ import com.codebase.Hero.Races.Heritage;
 
 public class Wizard extends Mage {
     public Wizard(Heritage givenHeritage) {
-        super(ClassNames.WIZARD, 60,givenHeritage);
+        super(ClassNames.WIZARD, 140,givenHeritage);
         setChosenSpell(1);
     }
 }

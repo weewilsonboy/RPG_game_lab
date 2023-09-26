@@ -8,7 +8,9 @@ import com.codebase.weapons.spells.OffensiveSpells;
 public class Healer extends SpellUser{
     public Healer(ClassNames classGiven, int hp, Heritage givenHeritage) {
         super(classGiven, hp, givenHeritage);
-        this.spellArrayList.add(OffensiveSpells.SMITE);
+        if(classGiven.getClassName().equals("Cleric")) {
+            this.spellArrayList.add(OffensiveSpells.SMITE);
+        }
         this.healingArrayList.add(HealingSpells.HEALINGWORD);
         this.healingArrayList.add(HealingSpells.LAYONHANDS);
         this.healingArrayList.add(HealingSpells.HEALTHPOTION);

@@ -1,15 +1,14 @@
 package com.codebase;
 
+import com.codebase.Hero.Archetypes.MageBoss;
 import com.codebase.Hero.Archetypes.SpellUser;
 import com.codebase.Hero.Archetypes.WeaponUser;
 import com.codebase.Hero.Classes.*;
 import com.codebase.Hero.Hero;
-import com.codebase.Hero.IConsoleFighter;
 import com.codebase.Hero.Races.Dwarf;
 import com.codebase.Hero.Races.Elf;
 import com.codebase.Hero.Races.Heritage;
 import com.codebase.Hero.Races.Human;
-import com.codebase.weapons.IAttack;
 
 import java.util.Scanner;
 
@@ -185,7 +184,24 @@ public class Main {
         System.out.println(heroTest.getClassName());
 //        fight(jim,enemy1);
         fight(heroTest,enemy1);
-
+        Cleric clericBot = new Cleric(new Elf());
+        clericBot.setChosenHeal(2);
+        for (int i = 0; i < 3; i++) {
+            clericBot.castHeal(heroTest);
+        }
+        Fighter enemy2 = new Fighter(new Human());
+        fight(heroTest,enemy2);
+        for (int i = 0; i < 3; i++) {
+            clericBot.castHeal(heroTest);
+        }
+        Warlock enemy3 = new Warlock(new Dwarf());
+        fight(heroTest,enemy3);
+        System.out.println("Now for the boss-fight");
+        System.out.println("You are facing an Elf Wizard");
+        System.out.println("DPR: 95");
+        System.out.println("HP: 200");
+        MageBoss boss = new MageBoss();
+        fight(heroTest,boss);
 
 
 

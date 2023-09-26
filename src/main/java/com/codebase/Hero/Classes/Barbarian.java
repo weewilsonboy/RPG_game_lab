@@ -6,6 +6,6 @@ import com.codebase.Hero.Races.Heritage;
 
 public class Barbarian extends WeaponUser {
     public Barbarian(Heritage givenHeritage) {
-        super(ClassNames.BARBARIAN,150,givenHeritage);
+        super(ClassNames.BARBARIAN,300,givenHeritage);
     }
 }

@@ -27,6 +27,14 @@ public class SpellUser extends Hero implements IConsoleFighter {
     public int castSpell(){
         return chosenSpell.hpChange()+heritageBonus;
     }
+
+    public ArrayList<ISpell> getHealingArrayList(){
+        return healingArrayList;
+    }
+    public void setChosenHeal(int i) {
+        this.chosenHeal = healingArrayList.get(i);
+    }
+
     public void castHeal(Hero hero){
         hero.setHp(chosenHeal.hpChange());
     }

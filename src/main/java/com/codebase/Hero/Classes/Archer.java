@@ -6,6 +6,6 @@ import com.codebase.Hero.Races.Heritage;
 
 public class Archer extends WeaponUser {
     public Archer(Heritage givenHeritage) {
-        super(ClassNames.ARCHER,75, givenHeritage);
+        super(ClassNames.ARCHER,160, givenHeritage);
     }
 }
