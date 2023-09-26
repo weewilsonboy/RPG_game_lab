@@ -4,8 +4,8 @@ public class Hero {
     private String className;
     private int hp;
 
-    public Hero(String className, int hp) {
-        this.className = className;
+    public Hero(ClassNames classGiven, int hp) {
+        this.className = classGiven.getClassName();
         this.hp = hp;
     }
 
