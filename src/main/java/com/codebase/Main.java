@@ -9,6 +9,7 @@ import com.codebase.Hero.Races.Dwarf;
 import com.codebase.Hero.Races.Elf;
 import com.codebase.Hero.Races.Heritage;
 import com.codebase.Hero.Races.Human;
+import com.codebase.Fight.*;
 
 import java.util.Scanner;
 
@@ -17,26 +18,27 @@ import static com.codebase.HeroBuilder.heroBuilder;
 import static java.lang.Math.round;
 
 public class Main {
-
-    public static void healPlayer(Hero player){
-        Cleric clericBot = new Cleric(new Elf());
-        clericBot.setChosenHeal(2);
-        while(player.getHp()<player.getMaxHp()){
-
+        public static void healPlayer(Hero player){
+            while(player.getHp()< player.getMaxHp()){
+                Cleric clericBot = new Cleric(new Elf());
+                clericBot.setChosenHeal(2);
+                clericBot.castHeal(player);
+            }
         }
-    }
-    public static void main(String[] args) {
+        public static void main(String[] args) {
+        Fighter jim = new Fighter(new Dwarf());
+        System.out.println(jim.getChosenWeapon());
+        System.out.println(jim.attack());
+        Warlock dave = new Warlock(new Human());
+        System.out.println(dave.getChosenSpell());
         Barbarian enemy1 = new Barbarian(new Elf());
         enemy1.setChosenWeapon(1);
         Hero playerHero = heroBuilder();
+        System.out.println(playerHero.getHeritage());
         System.out.println(playerHero.getClassName());
 //        fight(jim,enemy1);
         fight(playerHero,enemy1);
         healPlayer(playerHero);
-        Fighter enemy2 = new Fighter(new Human());
-        fight(playerHero,enemy2);
-        healPlayer(playerHero);
-
         Warlock enemy3 = new Warlock(new Dwarf());
         fight(playerHero,enemy3);
         healPlayer(playerHero);

@@ -15,6 +15,9 @@ public class Hero {
         this.heritage=heritage;
     }
 
+    public String getHeritage() {
+        return heritage.getHeritageName();
+    }
 
     public String getClassName() {
         return className;

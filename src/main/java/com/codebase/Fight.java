@@ -8,6 +8,7 @@ import com.codebase.Hero.Races.Dwarf;
 import com.codebase.Hero.Races.Elf;
 import com.codebase.Hero.Races.Heritage;
 import com.codebase.Hero.Races.Human;
+import com.sun.imageio.plugins.wbmp.WBMPImageReader;
 
 import java.util.Scanner;
 
@@ -60,7 +61,7 @@ public class Fight {
             }
         }
     }
-    static void fight(WeaponUser player, SpellUser enemy){
+    public static void fight(WeaponUser player, SpellUser enemy){
         int difficulty = pickDifficulty();
         System.out.println("Enemy has "+enemy.getHp()+" health");
         while(enemy.getHp()>0){
@@ -127,5 +128,6 @@ public class Fight {
                 fight(newPlayer,newEnemy);
             }
         }
+
     }
 }
