@@ -24,6 +24,10 @@ public class Hero {
         return hp;
     }
 
+    public int getMaxHp() {
+        return maxHp;
+    }
+
     public void setHp(int hpChange) {
         this.hp += hpChange;
         if(this.hp>this.maxHp){
